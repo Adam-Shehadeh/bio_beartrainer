@@ -16,7 +16,6 @@
 #include <string.h>
 #include "bio_beartrainer.h"
 
-
 // Starts signals to ensure that cleanup gets called on closing
 void start_signals()
 {
@@ -43,38 +42,8 @@ int main()
 	start_signals();		//	Handle closing of app in many ways to ensure memory is cleaned
 	bbt_initialize();		//	Initialize our devices
 	start_event_handlers();
-	
-	/*
-	pinMode(BTN_M1, INPUT);
-	pullUpDnControl(BTN_M1, PUD_UP);
-	wiringPiISR(BTN_M1, INT_EDGE_FALLING, clickM1);
-	
-	pinMode(BTN_K1, INPUT);
-	pullUpDnControl(BTN_K1, PUD_UP);
-	wiringPiISR(BTN_K1, INT_EDGE_FALLING, clickK1);
-	
-	pinMode(BTN_K4, INPUT);
-	pullUpDnControl(BTN_K4, PUD_UP);
-	wiringPiISR(BTN_K4, INT_EDGE_FALLING, clickK4);
-	
-	*/
-	//bbt_turn_stepper(STEP_TURN_90, SMC2);
-	//bbt_run_screen(SPLASH);	//	Render/run spash screen onto lcd.
-	//shut_dis_bitch_down();
-	
-	/*
-	int i = 0;
-	char str[10];
-	while (i < 20)
-	{
-		i++;
-		sprintf( str, "%d", i );
-		bbt_lcd_write(str);
-		delay(1000);
-	}
-	
-	*/
-	
+	bbt_run_screen(S_SPLASH);
+
 	getchar();	//	Stop console from exiting until key press occurs
 	return 0;	//	End of file
 }
